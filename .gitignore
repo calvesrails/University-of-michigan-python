@@ -1,0 +1,14 @@
+# Python / Jupyter
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
