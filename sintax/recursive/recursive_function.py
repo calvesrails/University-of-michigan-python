@@ -10,7 +10,7 @@
 
 
 def recursiva(inicio=0, fim=10):
-  #caso recursivo, contar até chegar ao final
+  # caso recursivo, contar até chegar ao final
 
   if inicio >= fim:
     return fim
@@ -19,3 +19,12 @@ def recursiva(inicio=0, fim=10):
 
 
 print(recursiva())
+
+
+def factorial(n):
+  if n <= 1:
+    return 1
+
+  return n * factorial(n - 1)
+
+print(factorial(5))
