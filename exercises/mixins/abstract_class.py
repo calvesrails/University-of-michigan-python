@@ -17,21 +17,47 @@
 
 from abc import ABC, abstractmethod
 
-class Log(ABC):
+class AbstractFoo(ABC):
+    def __init__(self, name):
+        self._name = None
+        self.name = name
 
-  @abstractmethod
-  def _log(self, msg):
-    ...
+    @property
+    @abstractmethod
+    def name(self): ...
 
-  def log_error(self, msg):
-    return self._log(f'Error: {msg}')
+class Foo(AbstractFoo):
+    def __init__(self, name):
+        super().__init__(name)
+        # print('Sou inútil')
 
-  def log_success(self, msg):
-    return self._log(f'Success: {msg}')
+    @property
+    def name(self):
+      return self._name
 
-class LogPrintMixin(Log):
-  def _log(self, msg):
-    print(f'{msg} LogPrintMixin')
+    @name.setter
+    def name(self, name):
+      self._name = name
 
-l = LogPrintMixin()
-l.log_error('oi')
+
+foo = Foo('Bar')
+print(foo.name)
+
+# class Log(ABC):
+
+#   @abstractmethod
+#   def _log(self, msg):
+#     ...
+
+#   def log_error(self, msg):
+#     return self._log(f'Error: {msg}')
+
+#   def log_success(self, msg):
+#     return self._log(f'Success: {msg}')
+
+# class LogPrintMixin(Log):
+#   def _log(self, msg):
+#     print(f'{msg} LogPrintMixin')
+
+# l = LogPrintMixin()
+# l.log_error('oi')
